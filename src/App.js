@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import TodoItem from './components/TodoItem'
+import TodoItemsStatus from './components/TodoItemsStatus'
 
-const incompletedCount = (items) => items.filter((item) => item.completed === false).length
+const countIncompleteItems = (items) => items.filter((item) => item.completed === false).length
 const toggleItemAtIndex = (items, indexToToggle) => {
   const item = items[indexToToggle]
   item.completed = !item.completed
@@ -15,7 +16,9 @@ class App extends Component {
     items: [
       { description: 'First', completed: true },
       { description: 'Second', completed: false },
-      { description: 'Third', completed: true }
+      { description: 'Third', completed: true },
+      { description: 'Fourth', completed: false },
+      { description: 'Fifth', completed: false }
     ]
   }
 
@@ -41,7 +44,10 @@ class App extends Component {
             />
           ))
         }
-        <p>{ incompletedCount(items) } remaining</p>
+        <TodoItemsStatus
+          totalCount={ items.length }
+          incompletedCount={ countIncompleteItems(items) }
+        />
       </div>
     );
   }
