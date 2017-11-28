@@ -35,14 +35,35 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h2>Complete</h2>
         {
-          items.map((item, index) => (
-            <TodoItem
-              key={ index }
-              { ...item }
-              onToggle={ () => this.onToggleItemAtIndex(index) }
-            />
-          ))
+          items.map((item, index) => {
+            if (!item.completed) {
+              return null
+            }
+            return (
+              <TodoItem
+                key={ index }
+                { ...item }
+                onToggle={ () => this.onToggleItemAtIndex(index) }
+              />
+            )
+          })
+        }
+        <h2>Incomplete</h2>
+        {
+          items.map((item, index) => {
+            if (item.completed) {
+              return null
+            }
+            return (
+              <TodoItem
+                key={ index }
+                { ...item }
+                onToggle={ () => this.onToggleItemAtIndex(index) }
+              />
+            )
+          })
         }
         <TodoItemsStatus
           totalCount={ items.length }
