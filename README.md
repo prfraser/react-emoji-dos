@@ -8,6 +8,13 @@
 3. Make todo item description editable
   - Hint: create a `onChangeItemDescriptionAtIndex(index, description)` method in your `App`
   - Hint: the `onChange` prop of a `<input>` will be called as a function with passed `event`. You can get the description using `event.target.value`
+4. Add a `TodoItemsStatus` component that shows the total number of items, and displays how many are incomplete
+5. Add emoji to `TodoItemsStatus`, that displays a different emoji based on the count. e.g.
+  - 0: 👏 🎉 👯‍ 🌞
+  - 1: ☝️
+  - 2: ✌️
+  - 3: 🤟 
+  - greater than 3: 🤯
 
 ## Info
 
