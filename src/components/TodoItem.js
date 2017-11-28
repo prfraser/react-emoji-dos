@@ -3,13 +3,23 @@ import React from 'react'
 const TodoItem = ({
   description,
   completed,
-  onToggle
+  onToggle,
+  onChangeDescription
 }) => (
-  <button className='todo-item-button' onClick={ onToggle }>
-    { completed ? '✅' : '❎' }
+  <div className='todo-item'>
+    <button className='todo-item-button' onClick={ onToggle }>
+      { completed ? '😎' : '😶' }
+    </button>
     &nbsp;&nbsp;
-    { description }
-  </button>
+    <input
+      className='todo-item-description-field'
+      type='text'
+      value={ description }
+      onChange={ (event) => {
+        onChangeDescription(event.target.value)
+      } }
+    />
+  </div>
 )
 
 export default TodoItem

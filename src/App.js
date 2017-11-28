@@ -10,6 +10,11 @@ const toggleItemAtIndex = (items, indexToToggle) => {
   // items[indexToToggle] = { ...item, completed: !item.completed }
   return items
 }
+const changeDescriptionOfItemAtIndex = (items, index, description) => {
+  const item = items[index]
+  item.description = description
+  return items
+}
 
 class App extends Component {
   state = {
@@ -30,6 +35,14 @@ class App extends Component {
     })
   }
 
+  onChangeItemDescriptionAtIndex = (index, description) => {
+    this.setState((prevState) => {
+      let items = prevState.items
+      items = changeDescriptionOfItemAtIndex(items, index, description)
+      return { items }
+    })
+  }
+
   render() {
     const items = this.state.items
 
@@ -46,6 +59,7 @@ class App extends Component {
                 key={ index }
                 { ...item }
                 onToggle={ () => this.onToggleItemAtIndex(index) }
+                onChangeDescription={ (description) => this.onChangeItemDescriptionAtIndex(index, description) }
               />
             )
           })
@@ -61,6 +75,7 @@ class App extends Component {
                 key={ index }
                 { ...item }
                 onToggle={ () => this.onToggleItemAtIndex(index) }
+                onChangeDescription={ (description) => this.onChangeItemDescriptionAtIndex(index, description) }
               />
             )
           })

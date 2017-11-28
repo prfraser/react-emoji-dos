@@ -3,9 +3,12 @@
   margin: 1rem auto;
 }
 
+.todo-item {
+  display: flex;
+}
 .todo-item-button {
-  display: block;
-  width: 100%;
-  text-align: left;
   border: none;
+}
+.todo-item-description-field {
+  flex-grow: 1;
 }
