@@ -5,10 +5,11 @@ const TodoItem = ({
   completed,
   onToggle
 }) => (
-  <label>
-    <input type='checkbox' checked={ completed } onChange={ onToggle } />
+  <button className='todo-item-button' onClick={ onToggle }>
+    { completed ? '✅' : '❎' }
+    &nbsp;&nbsp;
     { description }
-  </label>
+  </button>
 )
 
 export default TodoItem
