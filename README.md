@@ -3,6 +3,8 @@
 1. Change Todo Item checkbox to instead use emoji '✅' '❎' inside a `<button>`
 2. Split the todo items into two groups: completed and incompleted
   - Hint: first create two functions `filterCompletedItems` and `filterIncompletedItems`, then use them in the `render()` method
+  - Hint: however, does this track our item indexes correctly?
+  - Hint: use `.map` twice instead, and skip unwanted items by substituting them with `null`
 3. Make todo item description editable
   - Hint: create a `onChangeItemDescriptionAtIndex(index, description)` method in your `App`
   - Hint: the `onChange` prop of a `<input>` will be called as a function with passed `event`. You can get the description using `event.target.value`
