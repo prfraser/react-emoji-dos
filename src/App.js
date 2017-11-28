@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   onToggleItemAtIndex = (index) => {
+    console.log('asdfasdf')
     this.setState((prevState) => {
       let items = prevState.items
       items = toggleItemAtIndex(items, index)

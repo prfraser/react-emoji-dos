@@ -5,8 +5,8 @@ const TodoItem = ({
   completed,
   onToggle
 }) => (
-  <label>
-    <input type='checkbox' checked={ completed } onChange={ onToggle } />
+  <label onClick={ onToggle }>
+  	{(completed) ? '✅' : '❎'}
     { description }
   </label>
 )
